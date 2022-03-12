@@ -13,6 +13,13 @@ function App() {
     // turns the string returned from the count into a number (error handling).
     let amount = parseInt(count);
     console.log(amount);
+    // Fixing the bug where the display would display all 8 if user entered a negative number
+    if(count <= 0){
+      amount = 1
+    }
+    if (count > 8){
+      amount = 8
+    }
 
     // Displays the amount of paragraphs as selected by user (in the form).
     setText(data.slice(0,amount))
