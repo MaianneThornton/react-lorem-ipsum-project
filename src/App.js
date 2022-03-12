@@ -9,11 +9,20 @@ function App() {
   const handleSubmit = 
   (e) => {
     e.preventDefault();
-    console.log(`hello world!`);
+    console.log(typeof count);
+    // turns the string returned from the count into a number (error handling).
+    let amount = parseInt(count);
+    console.log(amount);
+
+    // Displays the amount of paragraphs as selected by user (in the form).
+    setText(data.slice(0,amount))
   }
   return (
+    // Title
   <section className="section-center">
     <h3>tired of boring lorem ipsum?</h3>
+
+    {/* Form */}
     <form className="lorem-form" onSubmit={handleSubmit}>
       <label htmlFor="amount">
         paragraphs:
@@ -22,6 +31,15 @@ function App() {
       <button type="submit" className="btn">generate</button>
     </form>
 
+    {/* Text */}
+    <article className="lorem-text">
+      {/* Iterating over the data.js array and displaying every item in the array in paragraphs */}
+      {text.map((item,index) => {
+        return <p key={index}>{item}</p>
+      })}
+      
+
+    </article>
   </section>
     )
 }
